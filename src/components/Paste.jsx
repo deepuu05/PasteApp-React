@@ -18,49 +18,56 @@ const paste = () => {
 
 
     return (
-        <div>
+        <div id='main-div'>
             <h1>All Pastes</h1>
-            <input type="text"
-                placeholder='search here'
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-            />
+            <div id='search-box'>
+                <input type="text"
+                    placeholder='search here'
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
+            </div>
 
-            <div>
+            <div id='cards'>
                 {
                     filterData.length > 0 ?
-                    filterData.map((paste) => {
-                        return (
-                            <div className='card'>
-                                <div>
-                                    {paste.title}
-                                </div>
-                                <div>
-                                    {paste.content}
-                                </div>
-                                <div>
-                                    <button
-                                        onClick={() => {
-                                            navigator.clipboard.writeText(paste?.content)
-                                            toast.success("Copied to clipboard")
-                                        }
+                        filterData.map((paste) => {
+                            return (
+                                <div className='card'>
+                                    <div id='btns-div'>
+                                        <div>
+                                            <h3>{paste.title}</h3>
+                                        </div>
+                                        <div className='btn'>
+                                            <button
+                                                onClick={() => {
+                                                    navigator.clipboard.writeText(paste?.content)
+                                                    toast.success("Copied to clipboard")
+                                                }
 
-                                        }> Copy</button>
-                                    <button>
-                                        <Link to={`/pastes/${paste?._id}`}>View</Link>
-                                    </button>
-                                    <button>  <Link to={`/?pasteId=${paste?._id}`}>Edit</Link>
-                                    </button>
-                                    {/* <button> Share</button> */}
-                                    <button onClick={() => handleDelete(paste?._id)}> Delete</button>
+                                                }> Copy</button>
+                                            <button>
+                                                <Link className='links' to={`/pastes/${paste?._id}`}>View</Link>
+                                            </button>
+                                            <button>  <Link className='links' to={`/?pasteId=${paste?._id}`}>Edit</Link>
+                                            </button>
+                                            {/* <button> Share</button> */}
+                                            <button onClick={() => handleDelete(paste?._id)}> Delete</button>
+                                        </div>
+
+                                    </div>
+                                    <div>
+                                        {paste.content}
+                                    </div>
+
+                                    <div className='date'>
+                                        Created Date :{paste.createdAt.slice(0,10)}
+                                    </div>
+
                                 </div>
-                                <div>
-                                    Created Date :{paste.createdAt}
-                                </div>
-                            </div>
-                        )
-                    })
-                    :<p>No record found</p>
+                            )
+                        })
+                        : <p>No record found</p>
                 }
             </div>
         </div>

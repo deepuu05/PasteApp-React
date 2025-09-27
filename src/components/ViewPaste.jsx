@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { addToPastes, updateToPastes } from '../redux/pasteSlice'
-
+import './ViewPaste.css'
 
 
 const ViewPaste = () => {
@@ -14,8 +14,8 @@ const ViewPaste = () => {
   const paste = allPastes.filter((p)=> p._id===id)[0]
 
   return (
-     <div>
-            <div>
+     <div id='outer-box'>
+            <div className='inner-box1'>
                 <input
                     type='text'
                     placeholder='enter title here'
@@ -24,7 +24,7 @@ const ViewPaste = () => {
                     onChange={(e) => setTitle(e.target.value)}
                 />
             </div>
-            <div>
+            <div className='inner-box2'>
                 <textarea
                     value={paste.content}
                     disabled

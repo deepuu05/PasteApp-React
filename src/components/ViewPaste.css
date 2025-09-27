@@ -1,0 +1,32 @@
+#outer-box{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.inner-box1{
+    width: 60%;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.inner-box1 input{
+     width: 70%;
+     padding: 3px;
+     margin-right: 10px;
+     font-size: large;
+     border-radius: 6px;
+}
+
+.inner-box2{
+    /* width: 750px; */
+    width:80%;
+
+}
+.inner-box2 textarea{
+    width: 100%;
+    height: 400px;
+    font-size: large;
+    border-radius: 6px;
+    padding: 6px;
+}

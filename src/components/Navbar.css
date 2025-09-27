@@ -1,0 +1,28 @@
+#navbar{
+    width: 100%;
+    background-color:#34656D;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    margin-bottom: 5px;
+   
+}
+.nav-link {
+font-size: x-large;
+  color: white;
+  text-decoration: none;
+}
+.nav-link:hover{
+
+  color: rgb(17, 16, 16);
+  
+}
+.active-link{
+  font-size: x-large;
+   color: white;
+  /* color: rgb(240, 85, 85); */
+  text-decoration: none; 
+}
+.active-link:hover{
+   color: rgb(17, 16, 16);
+}

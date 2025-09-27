@@ -3,8 +3,7 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 import { addToPastes, updateToPastes } from '../redux/pasteSlice'
-
-
+import './Home.css'
 
 const Home = () => {
     const [title, setTitle] = useState('')
@@ -47,8 +46,8 @@ const Home = () => {
 
 
     return (
-        <div>
-            <div>
+        <div id='outer-box'>
+            <div className='inner-box1'>
                 <input
                     type='text'
                     placeholder='enter title here'
@@ -62,7 +61,7 @@ const Home = () => {
                             :
                             "Create My Paste"}</button>
             </div>
-            <div>
+            <div className='inner-box2'>
                 <textarea
                     value={value}
                     placeholder='enter content here'
